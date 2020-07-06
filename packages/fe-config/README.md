@@ -2,15 +2,7 @@
 
 ## Installing
 
-Add `"fe-config": "https://us003.fly-access.com/scm/pafe/fe-config.git"` to `devDependencies` in `package.json`
-
-Make sure you have the HTTPS proxy configured as per [this guide](https://us002.fly-access.com/display/WDEV/OpenVPN+Setup).
-
-**Shorthand:**
-```sh
-git config --global http.https://us003.fly-access.com.proxy http://10.10.28.30:9000
-git config --global http.https://us003.fly-access.com.sslVerify false
-```
+`yarn add -D @dji-sdk/fe-config`
 
 Using `yarn` is highly recommended but not required. I tried `npm` v6 but it worked unreliably with the HTTPS proxy. 
 
@@ -38,12 +30,14 @@ For ESLint, create an `.eslintrc.js` file that has the following:
 
 ```js
 module.exports = require('fe-config/eslint')({
-  typescript: false,
+  typescript: true,
   graphql: false,
+  react: true,
+  vue: false
 })
 ```
 
-(update the `typescript` and `graphql` accordingly for your project.)
+(update the fields accordingly for your project.)
 
 If using VSCode, for best results you can copy this into `.vscode/settings.json` of project:
 
