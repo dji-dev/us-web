@@ -1,0 +1,17 @@
+{
+    "name": "@dji-sdk/web-polyfills",
+    "version": "1.0.0",
+    "license": "All rights reserved.",
+    "module": "index.js",
+    "dependencies": {
+        "@ungap/global-this": "^0.4.0",
+        "abort-controller": "^3.0.0",
+        "cross-fetch": "^3.0.5"
+    },
+    "devDependencies": {
+        "@dji-sdk/web-config": "1.0.0",
+        "eslint": "^7.4.0",
+        "prettier": "^2.0.5"
+    },
+    "prettier": "@dji-sdk/web-config/prettier"
+}

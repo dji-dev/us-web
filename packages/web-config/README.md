@@ -4,7 +4,7 @@
 
 `yarn add -D @dji-sdk/fe-config`
 
-Using `yarn` is highly recommended but not required. I tried `npm` v6 but it worked unreliably with the HTTPS proxy. 
+Using `yarn` is highly recommended but not required. I tried `npm` v6 but it worked unreliably with the HTTPS proxy.
 
 ## How to use linting features
 
@@ -22,18 +22,18 @@ Then, add the following to your `package.json`:
 
 ```json
 {
-  "prettier": "fe-config/prettier"
+    "prettier": "@dji-sdk/fe-config/prettier"
 }
 ```
 
 For ESLint, create an `.eslintrc.js` file that has the following:
 
 ```js
-module.exports = require('fe-config/eslint')({
-  typescript: true,
-  graphql: false,
-  react: true,
-  vue: false
+module.exports = require('@dji-sdk/fe-config/eslint')({
+    typescript: true,
+    graphql: false,
+    react: true,
+    vue: false,
 })
 ```
 

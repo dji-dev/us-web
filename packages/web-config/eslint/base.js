@@ -4,7 +4,17 @@ const restrictedGlobals = require('confusing-browser-globals')
 module.exports = {
     root: true,
     env: {
+        browser: true,
+        commonjs: true,
+        es6: true,
         node: true,
+    },
+    parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
+        },
     },
     extends: ['prettier', 'eslint:recommended'],
     plugins: ['prettier', 'unicorn', 'import'],

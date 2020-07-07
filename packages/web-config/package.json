@@ -1,5 +1,5 @@
 {
-  "name": "@dji-sdk/fe-config",
+  "name": "@dji-sdk/web-config",
   "version": "1.0.0",
   "main": "index.js",
   "license": "All rights reserved.",
