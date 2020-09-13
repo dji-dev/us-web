@@ -20,7 +20,23 @@ module.exports = {
     plugins: ['prettier', 'unicorn', 'import'],
     rules: {
         // Make any prettier formatting automatically an error.
-        'prettier/prettier': 'error',
+        'prettier/prettier': [
+            'error',
+            {
+                trailingComma: 'es5',
+                tabWidth: 4,
+                semi: false,
+                singleQuote: true,
+                printWidth: 100,
+                overrides: [
+                    {
+                        files: '.mock',
+                        options: { parser: 'json' },
+                    },
+                ],
+                jsxBracketSameLine: false,
+            }
+        ],
         // Conflicts with prettier.
         'no-extra-semi': 'off',
 
