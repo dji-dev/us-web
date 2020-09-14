@@ -4,6 +4,8 @@ A collection of configs and utilities for how we write JavaScript in the DJI US 
 
 The code is available for public use, however is **not** designed with public use in mind. DJI has no responsibility to support this project outside of its own interests.
 
+![collection of DJI drones](https://images.unsplash.com/photo-1573500801489-b2c2b71f8ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80)
+
 ## Packages
 
 |package|description|npm|
