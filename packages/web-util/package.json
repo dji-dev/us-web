@@ -1,5 +1,5 @@
 {
-    "name": "@dji-sdk/web-util",
+    "name": "@dji-dev/us-web-util",
     "version": "1.0.0",
     "main": "index.js",
     "license": "All rights reserved.",
@@ -15,16 +15,14 @@
         "lodash.throttle": "^4.1.1"
     },
     "devDependencies": {
-        "@dji-sdk/web-config": "1.0.0",
+        "@dji-dev/us-web-config": "1.0.0",
         "@rollup/plugin-typescript": "^5.0.1",
         "@types/clone-deep": "^4.0.1",
         "@types/lodash.debounce": "^4.0.6",
         "@types/lodash.throttle": "^4.1.6",
         "@types/requestidlecallback": "^0.3.1",
         "eslint": "^7.4.0",
-        "prettier": "^2.0.5",
         "rollup": "^2.20.0",
         "typescript": "^3.9.6"
-    },
-    "prettier": "@dji-sdk/web-config/prettier"
+    }
 }

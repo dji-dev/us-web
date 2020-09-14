@@ -1,8 +1,8 @@
-# fe-config
+# @dji-dev/us-web-config
 
 ## Installing
 
-`yarn add -D @dji-us/web-config`
+`yarn add -D @dji-dev/us-web-config`
 
 Using `yarn` is highly recommended but not required.
 
@@ -21,7 +21,7 @@ If using GraphQL also do:
 For ESLint, create an `.eslintrc.js` file that has the following:
 
 ```js
-module.exports = require('@dji-us/web-config/eslint')({
+module.exports = require('@dji-dev/us-web-config/eslint')({
     typescript: true,
     graphql: false,
     react: true,
@@ -33,15 +33,15 @@ module.exports = require('@dji-us/web-config/eslint')({
 
 # Babel
 
-To use the Babel plugin, add `@dji-us/web-config/babel` as a Babel preset **in addition** to the preset for your project (Expo, create-react-app, etc).
+To use the Babel plugin, add `@dji-dev/us-web-config/babel` as a Babel preset **in addition** to the preset for your project (Expo, create-react-app, etc).
 
 [How to add a Babel preset](https://babeljs.io/docs/en/presets)
 
 # TypeScript
 
-To extend our TypeScript configuration, add `"extends": "@dji-us/web-config/tsconfig.json"` to your project's `tsconfig.json`.
+To extend our TypeScript configuration, add `"extends": "@dji-dev/us-web-config/tsconfig.json"` to your project's `tsconfig.json`.
 
-Depending on your use-case, you may also use `@dji-us/web-config/typescript/web.json` or `@dji-us/web-config/typescript/react-native.json`.
+Depending on your use-case, you may also use `@dji-dev/us-web-config/typescript/web.json` or `@dji-dev/us-web-config/typescript/react-native.json`.
 
 # VSCode
 

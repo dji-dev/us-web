@@ -2,7 +2,7 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "target": "es2017",
+        "target": "ESNext",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,

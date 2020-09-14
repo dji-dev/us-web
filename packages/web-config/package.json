@@ -1,5 +1,5 @@
 {
-  "name": "@dji-us/web-config",
+  "name": "@dji-dev/us-web-config",
   "version": "1.0.0",
   "main": "index.js",
   "license": "All rights reserved.",

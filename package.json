@@ -1,5 +1,5 @@
 {
-  "name": "dji-us-web-js",
+  "name": "@dji-dev/us-web",
   "private": true,
   "devDependencies": {
     "lerna": "^3.22.1"

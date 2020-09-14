@@ -1,1 +1,1 @@
-module.exports = require('@dji-sdk/web-config/eslint')()
+module.exports = require('@dji-dev/us-web-config/eslint')()
