@@ -14,6 +14,7 @@ module.exports = {
         sourceType: 'module',
         ecmaFeatures: {
             jsx: true,
+            legacyDecorators: true
         },
     },
     extends: ['prettier', 'eslint:recommended'],
@@ -92,8 +93,13 @@ module.exports = {
     globals: {
         __DEV__: 'readonly',
     },
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     overrides: [
+        // Using in case of Vue plugin.
+        {
+            files: ['*.{js,jsx}'],
+            parser: '@babel/eslint-parser',
+        },
         {
             files: ['tests/**/*', 'tests/*', '*_spec.*', '*.spec.*', '*_test.*', '*.test.*'],
             plugins: ['jest'],
