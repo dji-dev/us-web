@@ -82,6 +82,9 @@ module.exports = {
                     32,
                     40,
                     56,
+                    // Common time values.
+                    60,
+                    1000,
                 ],
                 ignoreArrayIndexes: true,
                 enforceConst: true,
