@@ -2,7 +2,7 @@
 
 A collection of configs and utilities for how we write JavaScript in the DJI US Web Team.
 
-The code is available for public use, however is **not** designed with public use in mind. DJI has no responsibility to support this project outside of its own interests.
+**Important**: `us-web` and any sub-packages are not officially supported DJI products, and are developed on a best-effort basis.
 
 ![collection of DJI drones](https://images.unsplash.com/photo-1573500801489-b2c2b71f8ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80)
 
@@ -11,9 +11,9 @@ The code is available for public use, however is **not** designed with public us
 |package|description|npm|
 |-------|-----------|---|
 |[@dji-dev/us-web-config](packages/us-web-config)|Common configs for linting, Babel, and TypeScript.||
-|[@dji-dev/us-web-polyfills](packages/us-web-polyfills)|Polyfills to make sure each env has closer feature parity.||
 |[@dji-dev/us-web-util](packages/us-web-util)|Runtime utilities for building apps at DJI.||
-|[@dji-dev/react-native-hooks](packages/react-native-hooks)|React Native hooks for projects.||
+|[@dji-dev/react-native-hooks](packages/react-native-hooks)|React Native hooks for DJI projects.||
+|[fetch-compose](packages/fetch-compose)|Higher-order functions for WHATWG Fetch. Also includes an opinionated default.||
 
 ## License
 

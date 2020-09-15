@@ -8,6 +8,7 @@
         "build": "rollup -c",
         "test": "jest"
     },
+    "contributors": ["Michael Bullington <michael.bullington@dji.com>", "Jiuyi Zhang <jiuyi.zhang@dji.com>", "Haixiang Yan"],
     "dependencies": {
         "clone-deep": "^4.0.1",
         "deepmerge": "^4.2.2",
