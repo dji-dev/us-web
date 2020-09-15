@@ -8,7 +8,6 @@ import { CompareResult } from './types'
 export * from './types'
 export * from './dom'
 export * from './svg'
-export * from './fetch'
 
 // Re-exports from other libraries.
 export { debounce, throttle, deepMerge, deepClone }

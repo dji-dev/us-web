@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+import fetch from 'cross-fetch'
 import withRetry from '@zeit/fetch-retry'
 import isPlainObject from 'is-plain-object'
 
@@ -95,8 +97,8 @@ export function withThrowNonOk<T extends RequestInit>(fetch: Fetch<T>): Fetch<T>
     }
 }
 
-export function createDefaultFetch(fetch: Fetch<RequestInit>) {
-    return withJSON(withThrowNonOk(withTimeout(fetch)))
-}
-
 export { withRetry }
+
+export default function createFetch(fetchVal?: Fetch<RequestInit>) {
+    return withJSON(withThrowNonOk(withTimeout(fetchVal ?? fetch)))
+}

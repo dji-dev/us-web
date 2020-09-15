@@ -1,5 +1,3 @@
-declare const __DEV__: boolean
-
 declare module '@zeit/fetch-retry' {
     export interface RetryOptions {
         onRetry?: (error: any, opts: RequestInit & RetryOptions) => unknown

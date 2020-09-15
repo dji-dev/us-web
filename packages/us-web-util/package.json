@@ -9,10 +9,8 @@
         "test": "jest"
     },
     "dependencies": {
-        "@zeit/fetch-retry": "^5.0.0",
         "clone-deep": "^4.0.1",
         "deepmerge": "^4.2.2",
-        "is-plain-object": "^4.1.1",
         "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1"
     },
