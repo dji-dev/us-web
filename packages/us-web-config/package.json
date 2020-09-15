@@ -2,7 +2,7 @@
   "name": "@dji-dev/us-web-config",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "All rights reserved.",
+  "license": "MIT",
   "dependencies": {
     "@babel/eslint-parser": "^7.11.5",
     "@typescript-eslint/eslint-plugin": "^4.1.0",

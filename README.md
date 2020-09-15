@@ -10,9 +10,10 @@ The code is available for public use, however is **not** designed with public us
 
 |package|description|npm|
 |-------|-----------|---|
-|[@dji-dev/us-web-config](packages/web-config)|Common configs for linting, Babel, and TypeScript.||
-|[@dji-dev/us-web-polyfills](packages/web-polyfills)|Polyfills to make sure each env has closer feature parity.||
-|[@dji-dev/us-web-util](packages/web-util)|Runtime utilities for building apps at DJI.||
+|[@dji-dev/us-web-config](packages/us-web-config)|Common configs for linting, Babel, and TypeScript.||
+|[@dji-dev/us-web-polyfills](packages/us-web-polyfills)|Polyfills to make sure each env has closer feature parity.||
+|[@dji-dev/us-web-util](packages/us-web-util)|Runtime utilities for building apps at DJI.||
+|[@dji-dev/react-native-hooks](packages/react-native-hooks)|React Native hooks for projects.||
 
 ## License
 
