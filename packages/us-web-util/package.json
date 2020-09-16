@@ -7,7 +7,7 @@
     "scripts": {
         "build": "rollup -c",
         "test": "jest",
-        "docs": "typedoc --plugin typedoc-plugin-markdown lib"
+        "docs": "documentation readme lib/*.ts -f md --shallow --github --readme-file readme.md --section API"
     },
     "contributors": [
         "Michael Bullington <michael.bullington@dji.com>",
@@ -29,13 +29,12 @@
         "@types/lodash.debounce": "^4.0.6",
         "@types/lodash.throttle": "^4.1.6",
         "@types/requestidlecallback": "^0.3.1",
+        "documentation": "^13.0.2",
         "eslint": "^7.4.0",
         "jest": "^26.4.2",
         "promise-any-polyfill": "^0.1.2",
         "rollup": "^2.20.0",
         "ts-jest": "^26.3.0",
-        "typedoc": "^0.19.1",
-        "typedoc-plugin-markdown": "^2.4.2",
         "typescript": "^3.9.6"
     }
 }
