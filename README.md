@@ -1,4 +1,4 @@
-# dji-dev/us-web
+# :helicopter: dji-dev/us-web :helicopter:
 
 A collection of configs and utilities for how we write JavaScript in the DJI US Web Team.
 

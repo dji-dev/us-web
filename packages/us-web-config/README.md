@@ -1,5 +1,7 @@
 # @dji-dev/us-web-config
 
+Common configuration for US Web Team projects at DJI.
+
 ## Installing
 
 `yarn add -D @dji-dev/us-web-config`

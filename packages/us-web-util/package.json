@@ -6,9 +6,14 @@
     "module": "./dist/index.js",
     "scripts": {
         "build": "rollup -c",
-        "test": "jest"
+        "test": "jest",
+        "docs": "typedoc --plugin typedoc-plugin-markdown lib"
     },
-    "contributors": ["Michael Bullington <michael.bullington@dji.com>", "Jiuyi Zhang <jiuyi.zhang@dji.com>", "Haixiang Yan"],
+    "contributors": [
+        "Michael Bullington <michael.bullington@dji.com>",
+        "Jiuyi Zhang <jiuyi.zhang@dji.com>",
+        "Haixiang Yan"
+    ],
     "dependencies": {
         "clone-deep": "^4.0.1",
         "deepmerge": "^4.2.2",
@@ -29,6 +34,8 @@
         "promise-any-polyfill": "^0.1.2",
         "rollup": "^2.20.0",
         "ts-jest": "^26.3.0",
+        "typedoc": "^0.19.1",
+        "typedoc-plugin-markdown": "^2.4.2",
         "typescript": "^3.9.6"
     }
 }
