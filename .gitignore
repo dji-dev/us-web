@@ -2,3 +2,4 @@
 .DS_Store
 .jest-*
 node_modules
+packages/*/dist

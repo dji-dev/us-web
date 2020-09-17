@@ -11,7 +11,7 @@ A collection of configs and utilities for how we write JavaScript in the DJI US 
 |package|description|npm|
 |-------|-----------|---|
 |[@dji-dev/us-web-config](packages/us-web-config)|Common configs for linting, Babel, and TypeScript.|[![npm version](https://badge.fury.io/js/%40dji-dev%2Fus-web-config.svg)](https://badge.fury.io/js/%40dji-dev%2Fus-web-config)|
-|[@dji-dev/us-web-util](packages/us-web-util)|Runtime utilities for building apps at DJI.||
+|[@dji-dev/us-web-util](packages/us-web-util)|Runtime utilities for building apps at DJI.|[![npm version](https://badge.fury.io/js/%40dji-dev%2Fus-web-util.svg)](https://badge.fury.io/js/%40dji-dev%2Fus-web-util)|
 |[@dji-dev/react-native-hooks](packages/react-native-hooks)|React Native hooks for DJI projects.||
 |[fetch-compose](packages/fetch-compose)|Higher-order functions for WHATWG Fetch. Also includes an opinionated default.||
 

@@ -4,9 +4,11 @@
     "main": "index.js",
     "license": "All rights reserved.",
     "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "scripts": {
         "build": "rollup -c",
         "test": "jest",
+        "prepublish": "yarn build",
         "docs": "documentation readme lib/*.ts -f md --shallow --github --readme-file readme.md --section API"
     },
     "contributors": [
