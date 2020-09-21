@@ -12,6 +12,7 @@ export default function useImageSize(image: string): { width: number; height: nu
 
     useEffect(() => {
         if (!image) {
+            setSize([0, 0])
             return () => {}
         }
 
