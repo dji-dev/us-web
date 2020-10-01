@@ -1,5 +1,5 @@
 // @ts-ignore
-import { AbortController as FakeAbortController } from 'abortcontroller-polyfill/dist/cjs-ponyfill'
+import { AbortController as FakeAbortController } from 'abortcontroller-polyfill/src/abortcontroller'
 
 import { Fetch } from './types'
 
