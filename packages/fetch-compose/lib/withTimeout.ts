@@ -1,4 +1,13 @@
+// @ts-ignore
+import { AbortController as FakeAbortController } from 'abortcontroller-polyfill/dist/cjs-ponyfill'
+
 import { Fetch } from './types'
+
+const abortSelf = typeof global !== 'undefined' ? global : window
+
+// eslint-disable-next-line no-restricted-globals
+export const AbortController: typeof window.AbortController =
+    abortSelf.AbortController || FakeAbortController
 
 export interface TimeoutOptions {
     timeout: number

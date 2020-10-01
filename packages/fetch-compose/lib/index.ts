@@ -4,12 +4,22 @@ import withRetry from '@zeit/fetch-retry'
 
 import withJSON from './withJSON'
 import withThrowNonOk from './withThrowNonOk'
-import withTimeout from './withTimeout'
-import withJWTToken from './withJWTToken'
+import withTimeout, { AbortController } from './withTimeout'
+import withJWTToken, { CredentialProvider } from './withJWTToken'
 
 import { Fetch } from './types'
 
-export { withRetry, withJSON, withThrowNonOk, withTimeout, withJWTToken, Fetch, fetch }
+export {
+    withRetry,
+    withJSON,
+    withThrowNonOk,
+    withTimeout,
+    withJWTToken,
+    CredentialProvider,
+    AbortController,
+    Fetch,
+    fetch,
+}
 
 /**
  * Creates an opinionated default for fetch.

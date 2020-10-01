@@ -1,3 +1,5 @@
+import { Headers } from 'cross-fetch'
+
 import { Fetch } from './types'
 
 const UNAUTHORIZED = 401
@@ -6,7 +8,7 @@ interface CredentialOptions {
     skipRefresh?: boolean
 }
 
-type CredentialProvider = {
+export type CredentialProvider = {
     baseHostname: string
     /**
      * Gets the current JWT token.

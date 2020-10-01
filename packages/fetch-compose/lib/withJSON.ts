@@ -1,3 +1,4 @@
+import { Headers } from 'cross-fetch'
 import isPlainObject from 'is-plain-object'
 
 import { Fetch } from './types'

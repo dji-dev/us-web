@@ -6,6 +6,9 @@ Re-exports the great [vercel/fetch-retry](https://github.com/vercel/fetch-retry)
 
 Re-exports the also great [cross-fetch](https://www.npmjs.com/package/cross-fetch) as `fetch`.
 
+Re-exports the also also great [abortcontroller-polyfill](https://www.npmjs.com/package/abortcontroller-polyfill) as `AbortController` **only** if a system implementation (`globalThis.AbortController`) is not provided. Otherwise,
+the `AbortController` export will equal `globalThis.AbortController`, making it safe it use.
+
 [Jump to API Documentation](#API)
 
 ## Installing
