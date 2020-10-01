@@ -5,7 +5,10 @@
     "license": "MIT",
     "module": "./dist/index.js",
     "scripts": {
-        "build": "rollup -c"
+        "build": "rollup -c",
+        "test": "jest",
+        "prepublish": "yarn build",
+        "docs": "documentation readme lib/*.ts -f md --shallow --github --readme-file readme.md --section API"
     },
     "contributors": ["Michael Bullington <michael.bullington@dji.com>"],
     "devDependencies": {
@@ -15,7 +18,8 @@
         "eslint": "^7.4.0",
         "rollup": "^2.20.0",
         "ts-jest": "^26.3.0",
-        "typescript": "^3.9.6"
+        "typescript": "^3.9.6",
+        "documentation": "^13.0.2"
     },
     "dependencies": {
         "@zeit/fetch-retry": "^5.0.0",
