@@ -4,7 +4,7 @@ Runtime utilities for US Web Team at DJI.
 
 ## Installing
 
-`yarn add -D @dji-dev/us-web-util`
+`yarn add @dji-dev/us-web-util`
 
 Using `yarn` is highly recommended but not required.
 
