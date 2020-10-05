@@ -19,6 +19,7 @@
         "@dji-dev/us-web-config": "1.0.0",
         "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-typescript": "^5.0.1",
+        "@types/jwt-decode": "^2.2.1",
         "documentation": "^13.0.2",
         "eslint": "^7.4.0",
         "jest": "^26.4.2",
@@ -30,6 +31,8 @@
         "@zeit/fetch-retry": "^5.0.0",
         "abortcontroller-polyfill": "^1.5.0",
         "cross-fetch": "^3.0.6",
-        "is-plain-object": "^4.1.1"
+        "is-plain-object": "^4.1.1",
+        "jwt-decode": "^3.0.0",
+        "query-string": "^6.13.5"
     }
 }

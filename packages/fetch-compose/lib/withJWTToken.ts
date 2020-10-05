@@ -1,4 +1,5 @@
 import { Headers } from 'cross-fetch'
+import jwtDecode from 'jwt-decode'
 
 import { Fetch } from './types'
 
@@ -23,6 +24,13 @@ export type CredentialProvider = {
     refreshToken: () => Promise<void>
 }
 
+const INVALID_TOKEN_ERROR = 'InvalidTokenError'
+
+export interface Token {
+    // When token expires in seconds.
+    exp: number
+}
+
 /**
  * Handles adding the bearer token for authorized routes, otherwise
  * attempting to refresh the JWT token from backend.
@@ -31,7 +39,7 @@ export type CredentialProvider = {
  *
  * Allows an optional field named 'skipRefresh'.
  */
-export default function withJWTToken<T extends RequestInit>(
+export default function withJWTToken<T extends RequestInit, TK extends Token>(
     fetch: Fetch<T>,
     credentialProvider: CredentialProvider
 ): Fetch<T & CredentialOptions> {
@@ -50,6 +58,36 @@ export default function withJWTToken<T extends RequestInit>(
         // If we don't have any credentials (or account is guest), then just use normal fetch.
         if (!accessToken) {
             return await fetch(req, opts)
+        }
+
+        // Check ahead of time for expire of JWT.
+        try {
+            const { exp: seconds } = jwtDecode<TK>(accessToken)
+
+            if (seconds <= Date.now() / 1000) {
+                // Try to refresh token if 'expired'.
+                await credentialProvider.refreshToken()
+
+                return await func(req, {
+                    ...opts,
+                    skipRefresh: true,
+                })
+            }
+
+            // eslint-disable-next-line no-empty
+        } catch (e) {
+            // We don't want to make many assumption about the JWT token,
+            // so if there's an error just let it be.
+            if (
+                !e ||
+                !(
+                    e.name === INVALID_TOKEN_ERROR ||
+                    (e.constructor && e.constructor.name === INVALID_TOKEN_ERROR) ||
+                    e.toString().include(INVALID_TOKEN_ERROR)
+                )
+            ) {
+                throw e
+            }
         }
 
         let { headers = {}, ...rest } = opts
