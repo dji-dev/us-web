@@ -83,10 +83,10 @@ export default fetch
 `./src/fetch.js`:
 
 ```js
-import { fetch, withJSON, withThrowNonOk, withTimeout } from 'fetch-compose'
+import { fetch, withJSON, withQuery, withThrowNonOk, withTimeout } from 'fetch-compose'
 
 // Same as Default in README.md.
-const fetch = withJSON(withThrowNonOk(withTimeout(fetch)))
+const fetch = withJSON(withQuery(withThrowNonOk(withTimeout(fetch))))
 export default fetch
 ```
 
@@ -119,9 +119,9 @@ export default fetch
 
 ```js
 import compose from '@f/compose'
-import { fetch, withJSON, withThrowNonOk, withTimeout } from 'fetch-compose'
+import { fetch, withJSON, withQuery, withThrowNonOk, withTimeout } from 'fetch-compose'
 
-const fetch = compose(withJSON, withThrowNonOk, withTimeout)(fetch)
+const fetch = compose(withJSON, withQuery, withThrowNonOk, withTimeout)(fetch)
 export default fetch
 ```
 
@@ -160,8 +160,11 @@ export default fetch
     -   [Parameters](#parameters-1)
 -   [withJSON](#withjson)
     -   [Parameters](#parameters-2)
--   [getToken](#gettoken)
--   [refreshToken](#refreshtoken)
+-   [CredentialProvider](#credentialprovider)
+    -   [Properties](#properties)
+    -   [baseHostname](#basehostname)
+    -   [getToken](#gettoken)
+    -   [refreshToken](#refreshtoken)
 -   [withTimeout](#withtimeout)
     -   [Parameters](#parameters-3)
 -   [createFetch](#createfetch)
@@ -171,7 +174,7 @@ export default fetch
 
 ## Fetch
 
-[packages/fetch-compose/lib/types.ts:4-7](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/types.ts#L1-L3 "Source code on GitHub")
+[packages/fetch-compose/lib/types.ts:4-7](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/types.ts#L1-L3 "Source code on GitHub")
 
 Generic type for WHATWG Fetch API.
 
@@ -179,7 +182,7 @@ Type: function (req: RequestInfo, opts: Partial&lt;T>): [Promise](https://develo
 
 ## withThrowNonOk
 
-[packages/fetch-compose/lib/withThrowNonOk.ts:6-17](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withThrowNonOk.ts#L6-L17 "Source code on GitHub")
+[packages/fetch-compose/lib/withThrowNonOk.ts:6-17](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withThrowNonOk.ts#L6-L17 "Source code on GitHub")
 
 Throws a generic Error if HTTP response is not "ok".
 
@@ -191,7 +194,7 @@ Returns **[Fetch](#fetch)&lt;T>**
 
 ## withQuery
 
-[packages/fetch-compose/lib/withQuery.ts:13-28](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withQuery.ts#L13-L28 "Source code on GitHub")
+[packages/fetch-compose/lib/withQuery.ts:13-32](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withQuery.ts#L13-L32 "Source code on GitHub")
 
 If Fetch options include an object 'query', this will be converted
 into the search params of the URL.
@@ -204,7 +207,7 @@ Returns **[Fetch](#fetch)&lt;any>**
 
 ## withJSON
 
-[packages/fetch-compose/lib/withJSON.ts:14-38](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withJSON.ts#L14-L38 "Source code on GitHub")
+[packages/fetch-compose/lib/withJSON.ts:14-38](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJSON.ts#L14-L38 "Source code on GitHub")
 
 If Fetch options include a plain-object 'body', this will be converted
 into JSON with the Content-Type properly set to 'application/json' if not in 'headers'.
@@ -215,17 +218,39 @@ into JSON with the Content-Type properly set to 'application/json' if not in 'he
 
 Returns **[Fetch](#fetch)&lt;any>** 
 
-## getToken
+## CredentialProvider
 
-[packages/fetch-compose/lib/withJWTToken.ts:17-17](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withJWTToken.ts#L17-L17 "Source code on GitHub")
+[packages/fetch-compose/lib/withJWTToken.ts:15-31](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJWTToken.ts#L12-L14 "Source code on GitHub")
+
+Provider that is passed to 'withJWTToken'.
+
+Type: {baseHostname: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), getToken: function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>, refreshToken: function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;void>}
+
+### Properties
+
+-   `baseHostname` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `getToken` **function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+-   `refreshToken` **function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;void>** 
+
+### baseHostname
+
+[packages/fetch-compose/lib/withJWTToken.ts:19-19](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJWTToken.ts#L19-L19 "Source code on GitHub")
+
+Base hostname for what credentials should be offered.
+
+Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+### getToken
+
+[packages/fetch-compose/lib/withJWTToken.ts:23-23](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJWTToken.ts#L23-L23 "Source code on GitHub")
 
 Gets the current JWT token.
 
 Type: function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>
 
-## refreshToken
+### refreshToken
 
-[packages/fetch-compose/lib/withJWTToken.ts:24-24](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withJWTToken.ts#L24-L24 "Source code on GitHub")
+[packages/fetch-compose/lib/withJWTToken.ts:30-30](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJWTToken.ts#L30-L30 "Source code on GitHub")
 
 Refresh the JWT token using the refresh token.
 
@@ -236,7 +261,7 @@ Type: function (): [Promise](https://developer.mozilla.org/docs/Web/JavaScript/R
 
 ## withTimeout
 
-[packages/fetch-compose/lib/withTimeout.ts:33-63](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withTimeout.ts#L33-L63 "Source code on GitHub")
+[packages/fetch-compose/lib/withTimeout.ts:33-63](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withTimeout.ts#L33-L63 "Source code on GitHub")
 
 Based on this:
 <https://stackoverflow.com/questions/46946380/fetch-api-request-timeout/57888548#57888548>
@@ -254,7 +279,7 @@ Returns **[Fetch](#fetch)&lt;any>**
 
 ## createFetch
 
-[packages/fetch-compose/lib/index.ts:34-36](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/index.ts#L34-L36 "Source code on GitHub")
+[packages/fetch-compose/lib/index.ts:34-36](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/index.ts#L34-L36 "Source code on GitHub")
 
 Creates an opinionated default for fetch.
 
@@ -269,7 +294,7 @@ Creates an opinionated default for fetch.
 
 ## withJWTToken
 
-[packages/fetch-compose/lib/withJWTToken.ts:42-122](https://github.com/dji-dev/us-web/blob/11342bc5997e5e8fa405fd6259dbbeed74073a8e/packages/fetch-compose/lib/withJWTToken.ts#L42-L122 "Source code on GitHub")
+[packages/fetch-compose/lib/withJWTToken.ts:48-128](https://github.com/dji-dev/us-web/blob/6a1e1fb07f5ea7d470b34eb0b3735d5ae8900763/packages/fetch-compose/lib/withJWTToken.ts#L48-L128 "Source code on GitHub")
 
 Handles adding the bearer token for authorized routes, otherwise
 attempting to refresh the JWT token from backend.
@@ -281,6 +306,6 @@ Allows an optional field named 'skipRefresh'.
 ### Parameters
 
 -   `fetch` **[Fetch](#fetch)&lt;T>** 
--   `credentialProvider` **CredentialProvider** 
+-   `credentialProvider` **[CredentialProvider](#credentialprovider)** 
 
 Returns **[Fetch](#fetch)&lt;any>** 

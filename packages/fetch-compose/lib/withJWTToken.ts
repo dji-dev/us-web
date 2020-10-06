@@ -9,7 +9,13 @@ interface CredentialOptions {
     skipRefresh?: boolean
 }
 
+/**
+ * Provider that is passed to 'withJWTToken'.
+ */
 export type CredentialProvider = {
+    /**
+     * Base hostname for what credentials should be offered.
+     */
     baseHostname: string
     /**
      * Gets the current JWT token.
