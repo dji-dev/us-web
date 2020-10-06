@@ -1,5 +1,7 @@
 # :helicopter: dji-dev/us-web :helicopter:
 
+[![Actions Status](https://github.com/dji-dev/us-web/workflows/CI/badge.svg)](https://github.com/dji-dev/us-web/actions)
+
 A collection of configs and utilities for how we write JavaScript in the DJI US Web Team.
 
 **Important**: `us-web` and any sub-packages are not officially supported DJI products, and are developed on a best-effort basis.
