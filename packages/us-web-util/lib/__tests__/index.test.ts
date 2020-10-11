@@ -83,7 +83,7 @@ describe('resolveTimeout', () => {
 
     it('will timeout', async () => {
         await Promise.any([
-            resolveTimeout(120).then(() => {
+            resolveTimeout(300).then(() => {
                 throw new Error('failed')
             }),
             new Promise((resolve) => setTimeout(resolve, 100)),
