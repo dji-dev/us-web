@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+
 import { LngLat } from './types'
 
 const MAXIMUM_AGE_MINUTES = 30
@@ -101,3 +103,5 @@ export function isMobileSafari(): boolean {
 
     return isIOS && !isChromeIOS
 }
+
+export { Cookies }
