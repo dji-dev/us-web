@@ -1,6 +1,6 @@
 {
     "name": "@dji-dev/us-web-util",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "main": "dist/index.js",
     "license": "All rights reserved.",
     "module": "./dist/index.js",
