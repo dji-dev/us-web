@@ -93,7 +93,13 @@ export function getRootHostname(hostname: string, baseParts: number = 2): string
 /**
  * Simple implementation of the invariant pattern (used by Facebook).
  */
-export function invariant(condition: boolean, message: string) {
+
+interface Invariant {
+    (condition: false, message: string): never
+    (condition: boolean, message: string): asserts condition
+}
+
+const invariant: Invariant = ((condition: boolean, message: string) => {
     if (!condition) {
         if (__DEV__) {
             throw new Error(message)
@@ -101,7 +107,9 @@ export function invariant(condition: boolean, message: string) {
             throw new Error('Invariant Error')
         }
     }
-}
+}) as any
+
+export { invariant }
 
 /**
  * Resolves the Promise after {@param duration}.
