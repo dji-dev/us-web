@@ -21,6 +21,8 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
 
     "@typescript-eslint/consistent-type-assertions": "warn",
     "@typescript-eslint/array-type": "warn",
