@@ -2,7 +2,7 @@
     "name": "@dji-dev/us-web-util",
     "version": "1.2.0",
     "main": "dist/index.js",
-    "license": "All rights reserved.",
+    "license": "MIT",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {

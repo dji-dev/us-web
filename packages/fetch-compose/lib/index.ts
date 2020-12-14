@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import fetch from 'cross-fetch'
-import withRetry from '@zeit/fetch-retry'
+// @ts-ignore
+import withRetryUntyped from '@zeit/fetch-retry'
 
 import withJSON from './withJSON'
 import withQuery from './withQuery'
@@ -10,8 +11,20 @@ import withJWTToken, { CredentialProvider } from './withJWTToken'
 
 import { Fetch } from './types'
 
+export interface RetryOptions {
+    onRetry?: (error: any, opts: RequestInit & RetryOptions) => unknown
+    retry?: {
+        onRetry?: (error: any) => unknown
+        maxRetryAfter?: number
+    }
+}
+
+function fakeWithRetry<T extends RequestInit>(fetch: Fetch<T>): Fetch<T & RetryOptions> {
+    return fetch as any
+}
+export const withRetry: typeof fakeWithRetry = withRetryUntyped
+
 export {
-    withRetry,
     withJSON,
     withQuery,
     withThrowNonOk,
