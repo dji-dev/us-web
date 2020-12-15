@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie'
+// @ts-ignore
+import scrollToWithAnimation from 'scrollto-with-animation'
 
 import { LngLat } from './types'
 
@@ -63,6 +65,59 @@ export function isScrolledToBottom(el: Element, threshold = 0) {
     const scrollHeight = el.scrollHeight
 
     return scrollTop + height >= scrollHeight - threshold
+}
+
+interface ScrollOptions {
+    animated?: boolean
+    duration?: number
+}
+
+const DEFAULT_SCROLL_DURATION = 500
+
+/**
+ * Scrolls element to top, optionally animated if { animated: true } is specified
+ * in {@param options}.
+ *
+ * If { animated: true } and no duration is provided in {@param options}, then 500ms
+ * will be used.
+ *
+ * @param el
+ * @param options
+ */
+export function scrollToTop(
+    el: Element,
+    { animated = false, duration = DEFAULT_SCROLL_DURATION }: ScrollOptions = {}
+): void {
+    if (!animated) {
+        el.scrollTop = 0
+        return
+    }
+
+    // https://github.com/davesnx/scrollto-with-animation
+    scrollToWithAnimation(el, 'scrollTop', 0, duration, 'easeInOutCirc')
+}
+
+/**
+ * Scrolls element to bottom, optionally animated if { animated: true } is specified
+ * in {@param options}.
+ *
+ * If { animated: true } and no duration is provided in {@param options}, then 500ms
+ * will be used.
+ *
+ * @param el
+ * @param options
+ */
+export function scrollToBottom(
+    el: Element,
+    { animated = false, duration = DEFAULT_SCROLL_DURATION }: ScrollOptions = {}
+): void {
+    if (!animated) {
+        el.scrollTop = el.scrollHeight
+        return
+    }
+
+    // https://github.com/davesnx/scrollto-with-animation
+    scrollToWithAnimation(el, 'scrollTop', el.scrollHeight, duration, 'easeInOutCirc')
 }
 
 /**
